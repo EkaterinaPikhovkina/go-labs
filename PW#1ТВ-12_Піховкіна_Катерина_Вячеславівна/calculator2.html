@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор 2</title>
+</head>
+<body>
+<h1>Калькулятор 2</h1>
+
+<form action="/task2/calculate" method="post">
+    <input type="text" name="cg" value="{{.CG}}" placeholder="CG" required><br><br>
+    <input type="text" name="hg" value="{{.HG}}" placeholder="HG" required><br><br>
+    <input type="text" name="og" value="{{.OG}}" placeholder="OG" required><br><br>
+    <input type="text" name="sg" value="{{.SG}}" placeholder="SG" required><br><br>
+    <input type="text" name="ag" value="{{.AG}}" placeholder="AG" required><br><br>
+    <input type="text" name="wg" value="{{.WG}}" placeholder="WG" required><br><br>
+    <input type="text" name="vg" value="{{.VG}}" placeholder="VG" required><br><br>
+    <input type="text" name="qidaf" value="{{.Qidaf}}" placeholder="Qidaf" required><br><br>
+    <button type="submit">Обчислити</button>
+</form>
+
+{{if .Result}}
+<h2>Результат:</h2>
+<pre>{{.Result}}</pre>
+{{end}}
+
+<br><a href="/">Повернутися до вибору завдань</a>
+</body>
+</html>
