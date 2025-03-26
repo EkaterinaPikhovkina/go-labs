@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результат</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 60%; margin: auto; padding-top: 20px; }
+        h2 { text-align: center; margin-bottom: 30px; }
+        .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dotted #ccc; }
+        .result-row:last-child { border-bottom: none; }
+        .label { font-weight: bold; }
+        .value { text-align: right; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+        .button-container { text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Результат</h2>
+
+    <div class="result-row">
+        <div class="label">Коефіцієнт використання групи (K_c):</div>
+        <div class="value">{{ printf "%.2f" .GroupUtilizationRate }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Ефективна кількість одиниць (n_e):</div>
+        <div class="value">{{ printf "%.2f" .EffectiveNumberOfUnits }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Очікуваний коефіцієнт активної потужності (K_p):</div>
+        <div class="value">{{ printf "%.2f" .EstimatedActivePowerFactor }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Очікуване активне навантаження (P_r, kW):</div>
+        <div class="value">{{ printf "%.2f" .EstimatedActiveLoad }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Очікуване реактивне навантаження (Q_r, kvar):</div>
+        <div class="value">{{ printf "%.2f" .EstimatedReactiveLoad }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Повна потужність (S_p, kVA):</div>
+        <div class="value">{{ printf "%.2f" .FullPower }}</div>
+    </div>
+    <div class="result-row">
+        <div class="label">Очікуваний струм групи (I_p, A):</div>
+        <div class="value">{{ printf "%.2f" .EstimatedGroupCurrent }}</div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Назад</button>
+    </div>
+</div>
+</body>
+</html>

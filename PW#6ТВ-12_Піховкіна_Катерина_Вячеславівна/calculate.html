@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        input[type="text"] { width: 100%; padding: 5px; box-sizing: border-box; }
+        button { padding: 10px 20px; font-size: 16px; }
+        .container { width: 80%; margin: auto; padding-top: 20px; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Калькулятор</h2>
+    <form action="/calculate" method="post">
+        <table>
+            <thead>
+            <tr>
+                <th>η</th>
+                <th>cos φ</th>
+                <th>U</th>
+                <th>n</th>
+                <th>P_n</th>
+                <th>K_B</th>
+                <th>tg φ</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ range seq .Rows }}
+            <tr>
+                <td><input type="text" name="nominalEfficiency[{{ . }}]" value="{{ index $.NominalEfficiency . }}"></td>
+                <td><input type="text" name="loadPowerFactor[{{ . }}]" value="{{ index $.LoadPowerFactor . }}"></td>
+                <td><input type="text" name="loadVoltage[{{ . }}]" value="{{ index $.LoadVoltage . }}"></td>
+                <td><input type="text" name="units[{{ . }}]" value="{{ index $.Units . }}"></td>
+                <td><input type="text" name="nominalPower[{{ . }}]" value="{{ index $.NominalPower . }}"></td>
+                <td><input type="text" name="utilizationFactor[{{ . }}]" value="{{ index $.UtilizationFactor . }}"></td>
+                <td><input type="text" name="reactivePowerFactor[{{ . }}]" value="{{ index $.ReactivePowerFactor . }}"></td>
+            </tr>
+            {{ end }}
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <button type="submit">Розрахувати</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

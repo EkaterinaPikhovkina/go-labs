@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+</head>
+<body>
+<h1>Калькулятор</h1>
+<form action="/calculate" method="post">
+    <div>
+        <label for="pc">P_C:</label>
+        <input type="text" id="pc" name="pc" value="{{.PC}}">
+    </div>
+    <div>
+        <label for="sigma">σ:</label>
+        <input type="text" id="sigma" name="sigma" value="{{.Sigma}}">
+    </div>
+    <div>
+        <label for="b">B:</label>
+        <input type="text" id="b" name="b" value="{{.B}}">
+    </div>
+    <div>
+        <label for="delta">δ:</label>
+        <input type="text" id="delta" name="delta" value="{{.Delta}}">
+    </div>
+    <button type="submit">Розрахувати</button>
+</form>
+
+{{if .Result}}
+<div>
+    <p>{{.Result}}</p>
+</div>
+{{end}}
+</body>
+</html>
